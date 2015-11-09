@@ -1,68 +1,11 @@
-版本库（Repository）
-
-工作区有一个隐藏目录.git，这个不算工作区，而是Git的版本库。
-
-Git的版本库里存了很多东西，其中最重要的就是称为stage（或者叫index）的暂存区，还有Git为我们自动创建的第一个分支master，以及指向master的一个指针叫HEAD。
-分支和HEAD的概念我们以后再讲。
-
-前面讲了我们把文件往Git版本库里添加的时候，是分两步执行的：
-
-第一步是用git add把文件添加进去，实际上就是把文件修改添加到暂存区；
-
-第二步是用git commit提交更改，实际上就是把暂存区的所有内容提交到当前分支。
-
-因为我们创建Git版本库时，Git自动为我们创建了唯一一个master分支，所以，现在，git commit就是往master分支上提交更改。
-
-你可以简单理解为，需要提交的文件修改通通放到暂存区，然后，一次性提交暂存区的所有修改。
-
-俗话说，实践出真知。现在，我们再练习一遍，先对readme.txt做个修改，比如加上一行内容：
-
-Git is a distributed version control system.
-Git is free software distributed under the GPL.
-Git has a mutable index called stage.
-
-然后，在工作区新增一个LICENSE文本文件（内容随便写）。
-
-先用git status查看一下状态：
-
-$ git status
-# On branch master
-# Changes not staged for commit:
-#   (use "git add <file>..." to update what will be committed)
-#   (use "git checkout -- <file>..." to discard changes in working directory)
-#
-#       modified:   readme.txt
-#
-# Untracked files:
-#   (use "git add <file>..." to include in what will be committed)
-#
-#       LICENSE
-no changes added to commit (use "git add" and/or "git commit -a")
-
-Git非常清楚地告诉我们，readme.txt被修改了，而LICENSE还从来没有被添加过，所以它的状态是Untracked。
-
-现在，使用两次命令git add，把readme.txt和LICENSE都添加后，用git status再查看一下：
-
-$ git status
-# On branch master
-# Changes to be committed:
-#   (use "git reset HEAD <file>..." to unstage)
-#
-#       new file:   LICENSE
-#       modified:   readme.txt
-#
-现在，暂存区的状态就变成这样了：
-所以，git add命令实际上就是把要提交的所有修改放到暂存区（Stage），然后，执行git commit就可以一次性把暂存区的所有修改提交到分支。
-
-$ git commit -m "understand how stage works"
-[master 27c9860] understand how stage works
- 2 files changed, 675 insertions(+)
- create mode 100644 LICENSE
-
-一旦提交后，如果你又没有对工作区做任何修改，那么工作区就是“干净”的：
-
-$ git status
-# On branch master
-nothing to commit (working directory clean)
-
-现在版本库变成了这样，暂存区就没有任何内容了：
+一、我们的目标：
+1.机器人软件层次的研究
+2.方案设计及实现。
+二、我们现在用到的工具：
+	1.单片机：号主要以stc15w系列（国产）和stm32f1及stm32f4系列（ST：意法爱立信）单片机。针对机器人运动底层控制、遥控方案设计及实现、同上位机通信方案设计及实现。
+	2.基于嵌入式微处理器硬件系统（分类有些矫情，请原谅）：基于ARM9微处理器的嵌入式系统、树莓派（ARM11）。
+3.Linux/Windows操作系统：专门针对现有机器人或已经研制出的机器人平台的上位机开发及其他应用开发。涉及网络编程、图像处理。
+4. B/S软件结构开发：结合第3项内容采用浏览器/服务器软件结构开发。客户端是浏览器采用JavaScript，HTML，CSS 编写。服务器端采用python编程，实现前后端数据交互。
+三、我们的小组分配：
+	1．自主鱼研发小组：专门针对自主鱼的运动模态、上位机设计、单片机与树莓派通信做进一步改进和实现。
+	2. 大创小组：我们的队员积极参与学校的大学生创新创业计划，争取到的项目以大创小组形式完成。 
