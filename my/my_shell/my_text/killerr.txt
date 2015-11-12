@@ -1,0 +1,1 @@
+-bash: kill: 2661: invalid signal specification
